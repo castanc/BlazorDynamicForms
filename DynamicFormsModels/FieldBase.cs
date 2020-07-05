@@ -23,10 +23,10 @@ namespace DynamicFormsModels
         {
             set
             {
-                if (val != value && OnValueChanged != null)
-                    OnValueChanged.Invoke(this, val);
-                   
+                string oldValue = val;
                 val = value;
+                if (val != value && OnValueChanged != null) 
+                    OnValueChanged.Invoke(this, oldValue);
             }
             get
             {

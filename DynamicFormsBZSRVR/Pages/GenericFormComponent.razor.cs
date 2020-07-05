@@ -53,7 +53,7 @@ namespace DynamicFormsBZSRVR.Pages
                 var fld = Tab.Fields.Where(x => x.Key == "state").FirstOrDefault();
                 if (fld != null)
                 {
-                    if (value == "CA")
+                    if (field.Value == "CA")
                         fld.LookUp = "canadastates";
                     else
                         fld.LookUp = "usastates";
