@@ -28,6 +28,7 @@ namespace DynamicFormsModels
         public UIField()
         {
             Visible = true;
+            PlaceHolder = "";
         }
     }
 }

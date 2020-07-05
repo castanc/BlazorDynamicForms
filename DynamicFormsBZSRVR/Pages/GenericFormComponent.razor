@@ -29,44 +29,48 @@
             {
                 if (fld.Visible)
                 {
-                        @if (!string.IsNullOrEmpty(fld.Label))
-                        {
-                            <div>
-                                @fld.Label
-                            </div>
-                        }
-                        @if (fld.HTMLTag == "textarea")
-                        {
-                            <div>
-                                <textarea rows="@fld.Rows" cols="@fld.Cols" @bind="@fld.Value"></textarea>
-                            </div>
-                        }
-                        else if (!string.IsNullOrEmpty(fld.LookUp))
-                        {
-                            <div>
-                                <select @bind="@fld.Value">
-                                    @foreach (var item in lookUps[fld.LookUp])
+                    @if (!string.IsNullOrEmpty(fld.Label))
+                    {
+                        <div>
+                            @fld.Label
+                            @if(fld.Required)
+                            {
+                                @("(Required)")
+                            }
+                        </div>
+                    }
+                    @if (fld.HTMLTag == "textarea")
+                    {
+                        <div>
+                            <textarea rows="@fld.Rows" cols="@fld.Cols" @bind="@fld.Value"></textarea>
+                        </div>
+                    }
+                    else if (!string.IsNullOrEmpty(fld.LookUp))
+                    {
+                        <div>
+                            <select @bind="@fld.Value" required=" @fld.Required">
+                                @foreach (var item in lookUps[fld.LookUp])
+                                {
+                                    if (fld.Selected(item.Key))
                                     {
-                                        if (fld.Selected(item.Key))
-                                        {
-                                            <option value="@item.Key" selected>@item.Value</option>
-                                        }
-                                        else
-                                        {
-                                            <option value="@item.Key">@item.Value</option>
-
-                                        }
+                                        <option value="@item.Key" selected>@item.Value</option>
                                     }
+                                    else
+                                    {
+                                        <option value="@item.Key">@item.Value</option>
 
-                                </select>
-                            </div>
-                        }
-                        else
-                        {
-                            <div>
-                                <input type="@fld.InputType" @bind="@fld.Value" />
-                            </div>
-                        }
+                                    }
+                                }
+
+                            </select>
+                        </div>
+                    }
+                    else
+                    {
+                        <div>
+                            <input type="@fld.InputType" @bind="@fld.Value" required="@fld.Required" placeholder="@fld.PlaceHolder" />
+                        </div>
+                    }
                 }
             }
         </div>

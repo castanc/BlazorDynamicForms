@@ -101,6 +101,10 @@ namespace DynamicFormsBZSRVR.Pages
                 Tab = Page.Tabs[tabId];
         }
 
+        protected void Submit()
+        {
+
+        }
 
     }
 }
