@@ -1,0 +1,72 @@
+﻿@inherits GenericFormComponentBase
+@page "/genericform"
+<h3>GenericFormComponent</h3>
+<a href="@Service.JSONFileName" target="blank">JSON File</a>
+<div class="container">
+
+    <div class="row">
+        <div class="col-2">
+            <table>
+                @foreach (var pg in Section.Pages)
+                {
+                    <tr class="editable-row" @onclick="@(e => selectPage(pg.Id))">
+                        <td>
+                            @pg.Label
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="col=10">
+            @if (Page.Tabs.Count > 1)
+            {
+                foreach (var tab in Page.Tabs)
+                {
+                    <button type="button" class="btn btn-primary" @onclick="@(e => selectTab(tab.Id))">@tab.Title</button>
+                }
+            }
+            @foreach (var fld in Tab.Fields)
+            {
+                @if (!string.IsNullOrEmpty(fld.Label))
+                {
+                    <div>
+                        @fld.Label
+                    </div>
+                }
+                @if (fld.HTMLTag == "textarea")
+                {
+                    <div>
+                        <textarea rows="@fld.Rows" cols="@fld.Cols" @bind="@fld.Value"></textarea>
+                    </div>
+                }
+                else if (!string.IsNullOrEmpty(fld.LookUp))
+                {
+                    <div>
+                        <select @bind="@fld.Value">
+                            @foreach (var item in lookUps[fld.LookUp])
+                            {
+                                if (item.Key == fld.Value?.ToString())
+                                {
+                                    <option value="@item.Key" selected>@item.Value</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.Key">@item.Value</option>
+
+                                }
+                            }
+
+                        </select>
+                    </div>
+                }
+
+                else
+                {
+                    <div>
+                        <input type="@fld.InputType" @bind="@fld.Value" />
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

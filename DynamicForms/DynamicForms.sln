@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicForms", "DynamicForms.csproj", "{013F1843-1671-48FC-A54B-2B0E9136E5C4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UtilsSTD", "..\UtilsSTD\UtilsSTD.csproj", "{B9024173-523F-4604-96F1-4CE79D109AD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicFormsModels", "..\DynamicFormsModels\DynamicFormsModels.csproj", "{C29A4478-EF30-4C3C-A887-8C35F4878070}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicFormsService", "..\DynamicFormsService\DynamicFormsService.csproj", "{D466CD4A-611B-4CF4-8133-A742DA10C4A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BaseProjects", "BaseProjects", "{45AB9114-C703-4AE5-AAD9-08087A2B0464}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicFormsBZSRVR", "..\DynamicFormsBZSRVR\DynamicFormsBZSRVR.csproj", "{32EF321C-1CA5-4AAF-8BAC-A4D7C8AED804}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{013F1843-1671-48FC-A54B-2B0E9136E5C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{013F1843-1671-48FC-A54B-2B0E9136E5C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{013F1843-1671-48FC-A54B-2B0E9136E5C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{013F1843-1671-48FC-A54B-2B0E9136E5C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9024173-523F-4604-96F1-4CE79D109AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9024173-523F-4604-96F1-4CE79D109AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9024173-523F-4604-96F1-4CE79D109AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9024173-523F-4604-96F1-4CE79D109AD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C29A4478-EF30-4C3C-A887-8C35F4878070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C29A4478-EF30-4C3C-A887-8C35F4878070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C29A4478-EF30-4C3C-A887-8C35F4878070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C29A4478-EF30-4C3C-A887-8C35F4878070}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D466CD4A-611B-4CF4-8133-A742DA10C4A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D466CD4A-611B-4CF4-8133-A742DA10C4A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D466CD4A-611B-4CF4-8133-A742DA10C4A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D466CD4A-611B-4CF4-8133-A742DA10C4A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32EF321C-1CA5-4AAF-8BAC-A4D7C8AED804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32EF321C-1CA5-4AAF-8BAC-A4D7C8AED804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32EF321C-1CA5-4AAF-8BAC-A4D7C8AED804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32EF321C-1CA5-4AAF-8BAC-A4D7C8AED804}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B9024173-523F-4604-96F1-4CE79D109AD7} = {45AB9114-C703-4AE5-AAD9-08087A2B0464}
+		{C29A4478-EF30-4C3C-A887-8C35F4878070} = {45AB9114-C703-4AE5-AAD9-08087A2B0464}
+		{D466CD4A-611B-4CF4-8133-A742DA10C4A8} = {45AB9114-C703-4AE5-AAD9-08087A2B0464}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06EC0C81-E834-4BAC-8A17-4CCC8AC66D50}
+	EndGlobalSection
+EndGlobal

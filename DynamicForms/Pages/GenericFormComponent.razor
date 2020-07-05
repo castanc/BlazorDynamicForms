@@ -1,0 +1,49 @@
+﻿@inherits GenericFormComponentBase
+@page "/genericform"
+<h3>GenericFormComponent</h3>
+
+<div class="container">
+    <div class="row">
+            <div class="col-2">
+                <table>
+                    @foreach (var pg in Section.Pages)
+                    {
+                        <tr @onclick="@(e => selectPage(pg.Id))">
+                            <td>
+                                @pg.Label
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            <div class="col=10">
+                        @foreach (var tab in Page.Tabs)
+                        {
+                            <button type="button" class="btn btn-primary" @onclick="@(e => selectTab(tab.Id))">@tab.Title</button>
+                        }
+                        @foreach (var fld in Tab.Fields)
+                        {
+                            <div class="col-4">
+                                @if ( !string.IsNullOrEmpty(fld.Label))
+                                {
+                                @fld.Label
+                                }
+                            </div>
+                            <div class="col-8">
+                                @if ( fld.HTMLTag == "textarea")
+                                {
+                                <textarea rows="@fld.Rows" cols="@fld.Cols" @bind="@fld.Value"></textarea>
+                                }
+                                else
+                                {
+                                <input type="@fld.InputType" @bind="@fld.Value" />
+                                }
+                            </div>
+                        }
+            </div>
+
+            <div class="row">
+                <textarea rows="40" cols="120" @bind="@JSONText"></textarea>
+            </div>
+    </div>
+</div>
