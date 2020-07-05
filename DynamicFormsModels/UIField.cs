@@ -23,5 +23,11 @@ namespace DynamicFormsModels
         public string LookUp { set; get; }
         public object MaxValue { set; get; }
         public object MinValue { set; get; }
+        public bool Visible { set; get; }
+
+        public UIField()
+        {
+            Visible = true;
+        }
     }
 }

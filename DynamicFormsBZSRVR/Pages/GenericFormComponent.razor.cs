@@ -26,9 +26,11 @@ namespace DynamicFormsBZSRVR.Pages
 
         protected override Task OnInitializedAsync()
         {
-            lookUps.Add("countries", ListItem.CreateList("Canada,USA", "US,CA"));
-            lookUps.Add("usastates", ListItem.CreateList("Alabama,Alaska,Arizona,Arkansas,California,Colorado", "AL,AK,AZ,AR,CA,CO"));
-            lookUps.Add("canadastates", ListItem.CreateList("Alberta,British Columbia,Manitoba,New Brunswick", "AB,BC,MB,NB"));
+            //@onchange="@(e=>valueChanged(e,fld))"
+            lookUps.Add("countries", ListItem.CreateList("Select Country,Canada,USA,Uruguay", ",CA,US,UY"));
+            lookUps.Add("usastates", ListItem.CreateList("Select State,Alabama,Alaska,Arizona,Arkansas,California,Colorado", ",AL,AK,AZ,AR,CA,CO"));
+            lookUps.Add("canadastates", ListItem.CreateList("Select State,Alberta,British Columbia,Manitoba,New Brunswick", ",AB,BC,MB,NB"));
+            lookUps.Add("uruguaystates", ListItem.CreateList("Select State,Montevideo,Punta del Este,Colonia", ",MVD,PE,CO"));
             Document = Service.GetMockDocument();
             FieldBase.OnValueChanged += FieldBase_OnValueChanged;
             if (Document.Sections.Count > 0)
@@ -53,14 +55,40 @@ namespace DynamicFormsBZSRVR.Pages
                 var fld = Tab.Fields.Where(x => x.Key == "state").FirstOrDefault();
                 if (fld != null)
                 {
-                    if (field.Value == "CA")
+                    if (value == "CA")
+                        fld.LookUp = "canadastates";
+                    else if (value == "US")
+                        fld.LookUp = "usastates";
+                    else if (value == "UY")
+                        fld.LookUp = "uruguaystates";
+                    else
+                        fld.LookUp = "";
+                    //this.StateHasChanged();
+                }
+            }
+            else if ( field.Key == "address")
+            {
+                var fld = Tab.Fields.Where(x => x.Key == "address2").FirstOrDefault();
+                if (fld != null)
+                    fld.Visible = !string.IsNullOrEmpty(field.Value);
+            }
+        }
+
+
+        protected void valueChanged(ChangeEventArgs e, FieldBase  field)
+        {
+            if (field.Key == "country")
+            {
+                var fld = Tab.Fields.Where(x => x.Key == "state").FirstOrDefault();
+                if (fld != null)
+                {
+                    if (e.Value.ToString() == "CA")
                         fld.LookUp = "canadastates";
                     else
                         fld.LookUp = "usastates";
                 }
             }
         }
-
         protected void selectPage(int pageId)
         {
             Page = Section.Pages[pageId];

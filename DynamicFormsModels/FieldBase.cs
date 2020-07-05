@@ -25,13 +25,17 @@ namespace DynamicFormsModels
             {
                 string oldValue = val;
                 val = value;
-                if (val != value && OnValueChanged != null) 
-                    OnValueChanged.Invoke(this, oldValue);
-            }
+                if (OnValueChanged != null) 
+                    OnValueChanged.Invoke(this, value);            }
             get
             {
                 return val;
             }
+        }
+
+        public bool Selected(string val)
+        {
+            return val == Value;
         }
 
         /*

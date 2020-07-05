@@ -27,7 +27,8 @@ namespace DynamicFormsService
 
             doc.AddField(0, 0, 0, new UIField() { Key = "name", Label="Full Name",PlaceHolder="Full Name", InputType="text", Type = typeof(string), MaxLength = 40  });
             doc.AddField(0, 0, 0, new UIField() { Key = "address", Label = "Address", InputType = "text", Type = typeof(string), MaxLength = 40 });
-            doc.AddField(0, 0, 0, new UIField() { Key = "country", Label = "Country", Type = typeof(string), LookUp = "countries", HTMLTag = "select" });
+            doc.AddField(0, 0, 0, new UIField() { Key = "address2", Label = "Address 2", InputType = "text", Type = typeof(string), MaxLength = 40, Visible = false });
+            doc.AddField(0, 0, 0, new UIField() { Key = "country", Label = "Country", Type = typeof(string), LookUp = "countries", HTMLTag = "select", Value="US" });
             doc.AddField(0, 0, 0, new UIField() { Key = "state", Label = "State", Type =  typeof(string), LookUp="usastates", HTMLTag="select"});
             //doc.AddField(0, 0, 0, new UIField() { Key = "city", Label = "City", Type = typeof(string), LookUp = "cities", HTMLTag = "select" });
             doc.AddField(0, 0, 0, new UIField() { Key = "date", Label = "Date", InputType = "date", Type = typeof(DateTime),  });

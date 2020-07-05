@@ -27,44 +27,46 @@
             }
             @foreach (var fld in Tab.Fields)
             {
-                @if (!string.IsNullOrEmpty(fld.Label))
+                if (fld.Visible)
                 {
-                    <div>
-                        @fld.Label
-                    </div>
-                }
-                @if (fld.HTMLTag == "textarea")
-                {
-                    <div>
-                        <textarea rows="@fld.Rows" cols="@fld.Cols" @bind="@fld.Value"></textarea>
-                    </div>
-                }
-                else if (!string.IsNullOrEmpty(fld.LookUp))
-                {
-                    <div>
-                        <select @bind="@fld.Value">
-                            @foreach (var item in lookUps[fld.LookUp])
-                            {
-                                if (item.Key == fld.Value?.ToString())
-                                {
-                                    <option value="@item.Key" selected>@item.Value</option>
-                                }
-                                else
-                                {
-                                    <option value="@item.Key">@item.Value</option>
+                        @if (!string.IsNullOrEmpty(fld.Label))
+                        {
+                            <div>
+                                @fld.Label
+                            </div>
+                        }
+                        @if (fld.HTMLTag == "textarea")
+                        {
+                            <div>
+                                <textarea rows="@fld.Rows" cols="@fld.Cols" @bind="@fld.Value"></textarea>
+                            </div>
+                        }
+                        else if (!string.IsNullOrEmpty(fld.LookUp))
+                        {
+                            <div>
+                                <select @bind="@fld.Value">
+                                    @foreach (var item in lookUps[fld.LookUp])
+                                    {
+                                        if (fld.Selected(item.Key))
+                                        {
+                                            <option value="@item.Key" selected>@item.Value</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@item.Key">@item.Value</option>
 
-                                }
-                            }
+                                        }
+                                    }
 
-                        </select>
-                    </div>
-                }
-
-                else
-                {
-                    <div>
-                        <input type="@fld.InputType" @bind="@fld.Value" />
-                    </div>
+                                </select>
+                            </div>
+                        }
+                        else
+                        {
+                            <div>
+                                <input type="@fld.InputType" @bind="@fld.Value" />
+                            </div>
+                        }
                 }
             }
         </div>
